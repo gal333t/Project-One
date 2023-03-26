@@ -13,9 +13,11 @@ function onStartUp() {
   console.log(guesses);
 }
 
-function newGuess() {
-  letters = guesses[guessCounter].querySelectorAll(".letter");
+// this now works on return key click and puts the letters in the row correctly
+// still want to run it to input each letter as you type
 
+function onReturn() {
+  letters = guesses[guessCounter].querySelectorAll(".letter");
   for (let i = 0; i < 5; i++) {
     // console.log(i);
     let p = document.createElement("p");
@@ -24,6 +26,10 @@ function newGuess() {
     let div = letters[i];
     div.appendChild(p);
   }
+}
+
+function newGuess() {
+  letters = guesses[guessCounter].querySelectorAll(".letter");
 }
 
 onStartUp();
