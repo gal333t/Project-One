@@ -11,12 +11,12 @@ let letters = [];
 let guesses = [];
 // let guesses = [div.guess, div.guess, div.guess, div.guess, div.guess];
 
-// let letters = guesses? and assing ID based on `lettter${index?}`
+let clickedLetter = [];
 
 function onStartUp() {
   guesses = document.querySelectorAll(".guess");
   console.log(guesses);
-  let i = guesses;
+  // let i = guesses;
   // for (i = 0; i < 6; i++) {
   //   //
   // }
@@ -27,16 +27,18 @@ function newGuess() {
   letters = guesses[guessCounter].querySelectorAll(".letter");
   // shows us by each box specifically of the first row
   console.log(letters);
+  // should i = letter counter?
   let i = letters;
-  for (i = 0; i < 6; i++) {
+  for (i = 0; i < 5; i++) {
     console.log(i);
     let p = document.createElement("p");
     // add a ID with the name "letter" followed by the index for number
     p.setAttribute("id", `letter${[i]}`);
-    // this will change the text in each p element to the 'letter' based on index
-    p.textContent = letters[i];
-
+    // will update when keyboard works to input a letter based on it's index in the word
+    p.textContent = clickedLetter[i];
+    // finds the div based on it's index again going off index in that loop
     let div = letters[i];
+    console.log(p);
     div.appendChild(p);
   }
 }
@@ -57,15 +59,25 @@ for (let keyElement of keys) {
   keyElement.addEventListener("click", function () {
     // take the key clicked, and type into a box
     console.log(key);
-
-    if (key === "Backspace") {
-      let output = document.querySelectorAll("p");
-      output.textContent = "";
-    } else {
-      let div = document.querySelector(".letter");
-      let letter0 = document.createElement("p");
-      letter0.textContent = key;
-      div.appendChild(letter0);
-    }
+    // whatever key is clicked, add to array 'clickedLetter'
+    clickedLetter.push(key);
   });
 }
+
+// for (let keyElement of keys) {
+//   let key = keyElement.textContent;
+//   keyElement.addEventListener("click", function () {
+//     // take the key clicked, and type into a box
+//     console.log(key);
+
+//     if (key === "Backspace") {
+//       let output = document.querySelectorAll("p");
+//       output.textContent = "";
+//     } else {
+//       let div = document.querySelector(".letter");
+//       let letter0 = document.createElement("p");
+//       letter0.textContent = key;
+//       div.appendChild(letter0);
+//     }
+//   });
+// }
