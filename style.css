@@ -32,3 +32,46 @@ p {
   color: white;
   margin: 0 auto;
 }
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard {
+  background-color: silver;
+  width: 450px;
+  padding: 20px;
+  border-radius: 2px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.key,
+#backspaceKey,
+#returnKey,
+#spacebar {
+  margin: 1px;
+  text-align: center;
+  background-color: grey;
+  border: 1px solid black;
+  border-radius: 1px;
+}
+
+#returnKey {
+  width: 50px;
+  height: 40px;
+}
+#backspaceKey {
+  width: 80px;
+  height: 40px;
+}
+.key {
+  height: 40px;
+  width: 40px;
+}
+
+#spacebar {
+  width: 200px;
+  height: 40px;
+}
