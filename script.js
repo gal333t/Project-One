@@ -24,9 +24,9 @@ function onReturn() {
     for (let i = 0; i < 5; i++) {
       // console.log(i);
       let p = document.createElement("p");
-      p.setAttribute("id", `letter${[i]}`);
       p.textContent = clickedLetter[i];
       let div = letters[i];
+      div.setAttribute("id", `letter${[i]}`);
       div.appendChild(p);
       checkWord();
     }
@@ -46,8 +46,9 @@ function checkLetters(chosenWordArr, clickedLetter) {
     for (let x = 0; x < clickedLetter.length; x++) {
       if (chosenWordArr[i] === clickedLetter[x]) {
         let answer = document.getElementById(`letter${[x]}`).textContent;
+        let div = document.getElementById(`letter${[x]}`);
         console.log(answer);
-        answer.setAttribute("class", "wrongPlace");
+        div.setAttribute("class", "wrongPlace");
       }
     }
   }
