@@ -40,16 +40,20 @@ function checkWord() {
 }
 
 // checkLetters() was pretty much copied from Geeks for Geeks website, adjusted to make it work for what I wanted
-
+// this will end up being called onclick for the return button, once my current return function has been redone correctly for onclick of each key
 function checkLetters(chosenWordArr, clickedLetter) {
   for (let i = 0; i < chosenWordArr.length; i++) {
     for (let x = 0; x < clickedLetter.length; x++) {
       if (chosenWordArr[i] === clickedLetter[x]) {
-        console.log(clickedLetter[x]);
+        let answer = document.getElementById(`letter${[x]}`).textContent;
+        console.log(answer);
+        answer.setAttribute("class", "wrongPlace");
       }
     }
   }
 }
+
+checkLetters(chosenWordArr, clickedLetter);
 
 function newGuess() {
   letters = guesses[guessCounter].querySelectorAll(".letter");
