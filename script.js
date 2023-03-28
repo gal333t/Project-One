@@ -27,8 +27,17 @@ function onKeyInput() {
     let p = document.createElement("p");
     p.textContent = clickedLetters[letterCounter];
     selectedDiv.appendChild(p);
-    ++letterCounter;
+    letterCounter++;
   }
+}
+
+function onBackspace() {
+  let letterIndex = clickedLetters.length - 1;
+  let p = document.querySelector(`#letter${[letterIndex]} p`);
+  p.remove();
+  clickedLetters.pop();
+  letterCounter--;
+  console.log(clickedLetters);
 }
 
 function onReturn() {
@@ -36,6 +45,7 @@ function onReturn() {
     console.log("Word is not valid");
   } else {
     checkLetters(chosenWordArr, clickedLetters);
+    clickedLetters.length = 0;
   }
 }
 
@@ -45,7 +55,7 @@ function checkLetters(chosenWordArr, clickedLetters) {
   for (let i = 0; i < clickedLetters.length; i++) {
     if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
       let div = document.getElementById(`letter${i}`);
-      div.setAttribute("class", "rightWord");
+      div.setAttribute("class", "rightLetter");
     } else if (chosenWordArr.indexOf(clickedLetters[i]) >= 0) {
       // let answer = document.getElementById(`letter${i}`).textContent;
       let div = document.getElementById(`letter${i}`);
@@ -56,14 +66,6 @@ function checkLetters(chosenWordArr, clickedLetters) {
     }
   }
 }
-
-// checkLetters(chosenWordArr, clickedLetter);
-
-function newGuess() {
-  letters = guesses[guessCounter].querySelectorAll(".letter");
-}
-
-onStartUp();
 
 // keyboard
 
@@ -78,6 +80,8 @@ for (let keyElement of keys) {
     onKeyInput();
   });
 }
+
+onStartUp();
 
 function info() {
   alert(
