@@ -8,7 +8,7 @@ let guessCounter = 0;
 let letters = [];
 let guesses = [];
 
-let clickedLetter = [];
+let clickedLetters = [];
 
 function onStartUp() {
   guesses = document.querySelectorAll(".guess");
@@ -23,37 +23,38 @@ function onKeyInput() {
   } else {
     let div = document.querySelectorAll(".letter");
     selectedDiv = div[letterCounter];
+    selectedDiv.setAttribute("id", `letter${[letterCounter]}`);
     let p = document.createElement("p");
-    p.textContent = clickedLetter[letterCounter];
+    p.textContent = clickedLetters[letterCounter];
     selectedDiv.appendChild(p);
     ++letterCounter;
   }
 }
 
-function checkWord() {
-  if (validWords.includes(clickedLetter.join("")) == false) {
+function onReturn() {
+  if (validWords.includes(clickedLetters.join("")) == false) {
     console.log("Word is not valid");
   } else {
-    checkLetters(chosenWordArr, clickedLetter);
+    checkLetters(chosenWordArr, clickedLetters);
   }
 }
 
-// checkLetters() was pretty much copied from Geeks for Geeks website, adjusted to make it work for what I wanted
-function checkLetters(chosenWordArr, clickedLetter) {
-  for (let i = 0; i < chosenWordArr.length; i++) {
-    for (let x = 0; x < clickedLetter.length; x++) {
-      if (chosenWordArr[i] !== clickedLetter[x]) {
-        let div1 = document.getElementById(`letter${[x]}`);
-        div1.setAttribute("class", "wrongLetter");
-      }
-
-      // changed the if and else over but still overrides each other incorrectly
-      else if (chosenWordArr[i] === clickedLetter[x]) {
-        let answer = document.getElementById(`letter${[x]}`).textContent;
-        let div = document.getElementById(`letter${[x]}`);
-        console.log(answer);
-        div.setAttribute("class", "wrongPlace");
-      }
+// originally copied an idea from Geeks from Geeks, adjusted with help from Sean and Robert
+function checkLetters(chosenWordArr, clickedLetters) {
+  console.log(clickedLetters);
+  for (let i = 0; i < clickedLetters.length; i++) {
+    if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
+      let div = document.getElementById(`letter${i}`);
+      div.setAttribute("class", "rightWord");
+    } else if (chosenWordArr.indexOf(clickedLetters[i]) >= 0) {
+      let answer = document.getElementById(`letter${i}`).textContent;
+      let div = document.getElementById(`letter${i}`);
+      console.log(answer);
+      console.log(`letter${i}`);
+      div.setAttribute("class", "wrongPlace");
+    } else {
+      let div = document.getElementById(`letter${i}`);
+      div.setAttribute("class", "wrongLetter");
     }
   }
 }
@@ -75,8 +76,8 @@ for (let keyElement of keys) {
   let key = keyElement.textContent;
   keyElement.addEventListener("click", function () {
     console.log(key);
-    clickedLetter.push(key);
-    onKeyInput();
+    clickedLetters.push(key);
+    onReturn();
   });
 }
 
