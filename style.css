@@ -25,8 +25,17 @@ header {
   border-radius: 3px;
 }
 
-.wrongLeter {
+.wrongLetter {
   background-color: rgba(228, 168, 228, 0.452);
+  width: 50px;
+  height: 50px;
+  justify-self: center;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.rightLetter {
+  background-color: violet;
   width: 50px;
   height: 50px;
   justify-self: center;
@@ -71,6 +80,10 @@ p {
   border-radius: 2px;
   max-width: 500px;
   margin: auto;
+}
+
+.key:active {
+  background-color: rgba(128, 128, 128, 0.401);
 }
 
 .key,
