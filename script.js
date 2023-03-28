@@ -50,6 +50,11 @@ function checkLetters(chosenWordArr, clickedLetter) {
         console.log(answer);
         div.setAttribute("class", "wrongPlace");
       }
+      // why does this below override the if statement?
+      // else {
+      //   let div = document.getElementById(`letter${[x]}`);
+      //   div.setAttribute("class", "wrongLetter");
+      // }
     }
   }
 }
@@ -73,4 +78,10 @@ for (let keyElement of keys) {
     console.log(key);
     clickedLetter.push(key);
   });
+}
+
+function info() {
+  alert(
+    "What the different colours mean: X - correct letter in the wrong place. Y - correct letter & correct place"
+  );
 }
