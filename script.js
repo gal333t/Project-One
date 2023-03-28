@@ -15,51 +15,50 @@ function onStartUp() {
   console.log(guesses);
 }
 
-function onReturn() {
+function onKeyInput() {
   letters = guesses[guessCounter].querySelectorAll(".letter");
 
-  if (clickedLetter.length != 5) {
+  if (letterCounter.length > 4) {
     alert("invalid word");
   } else {
-    for (let i = 0; i < 5; i++) {
-      // console.log(i);
-      let p = document.createElement("p");
-      p.textContent = clickedLetter[i];
-      let div = letters[i];
-      div.setAttribute("id", `letter${[i]}`);
-      div.appendChild(p);
-      checkWord();
-    }
+    let div = document.querySelectorAll(".letter");
+    selectedDiv = div[letterCounter];
+    let p = document.createElement("p");
+    p.textContent = clickedLetter[letterCounter];
+    selectedDiv.appendChild(p);
+    ++letterCounter;
   }
 }
 
 function checkWord() {
   if (validWords.includes(clickedLetter.join("")) == false) {
     console.log("Word is not valid");
+  } else {
+    checkLetters(chosenWordArr, clickedLetter);
   }
 }
 
 // checkLetters() was pretty much copied from Geeks for Geeks website, adjusted to make it work for what I wanted
-// this will end up being called onclick for the return button, once my current return function has been redone correctly for onclick of each key
 function checkLetters(chosenWordArr, clickedLetter) {
   for (let i = 0; i < chosenWordArr.length; i++) {
     for (let x = 0; x < clickedLetter.length; x++) {
-      if (chosenWordArr[i] === clickedLetter[x]) {
+      if (chosenWordArr[i] !== clickedLetter[x]) {
+        let div1 = document.getElementById(`letter${[x]}`);
+        div1.setAttribute("class", "wrongLetter");
+      }
+
+      // changed the if and else over but still overrides each other incorrectly
+      else if (chosenWordArr[i] === clickedLetter[x]) {
         let answer = document.getElementById(`letter${[x]}`).textContent;
         let div = document.getElementById(`letter${[x]}`);
         console.log(answer);
         div.setAttribute("class", "wrongPlace");
       }
-      // why does this below override the if statement?
-      // else {
-      //   let div = document.getElementById(`letter${[x]}`);
-      //   div.setAttribute("class", "wrongLetter");
-      // }
     }
   }
 }
 
-checkLetters(chosenWordArr, clickedLetter);
+// checkLetters(chosenWordArr, clickedLetter);
 
 function newGuess() {
   letters = guesses[guessCounter].querySelectorAll(".letter");
@@ -77,6 +76,7 @@ for (let keyElement of keys) {
   keyElement.addEventListener("click", function () {
     console.log(key);
     clickedLetter.push(key);
+    onKeyInput();
   });
 }
 
