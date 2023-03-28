@@ -47,10 +47,8 @@ function checkLetters(chosenWordArr, clickedLetters) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightWord");
     } else if (chosenWordArr.indexOf(clickedLetters[i]) >= 0) {
-      let answer = document.getElementById(`letter${i}`).textContent;
+      // let answer = document.getElementById(`letter${i}`).textContent;
       let div = document.getElementById(`letter${i}`);
-      console.log(answer);
-      console.log(`letter${i}`);
       div.setAttribute("class", "wrongPlace");
     } else {
       let div = document.getElementById(`letter${i}`);
@@ -77,7 +75,7 @@ for (let keyElement of keys) {
   keyElement.addEventListener("click", function () {
     console.log(key);
     clickedLetters.push(key);
-    onReturn();
+    onKeyInput();
   });
 }
 
