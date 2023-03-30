@@ -74,7 +74,6 @@ function onReturn() {
   }
 }
 
-// originally copied an idea from Geeks from Geeks, adjusted with help from Sean and Robert
 function checkLetters(chosenWordArr, clickedLetters) {
   console.log(clickedLetters);
   for (let i = 0; i < clickedLetters.length; i++) {
@@ -84,15 +83,31 @@ function checkLetters(chosenWordArr, clickedLetters) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightLetter");
       div.removeAttribute("id", `letter${[i]}`);
+      keyColorChange(clickedLetters[i], div);
     } else if (chosenWordArr.indexOf(clickedLetters[i]) >= 0) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "wrongPlace");
       div.removeAttribute("id", `letter${[i]}`);
+      keyColorChange(clickedLetters[i], div);
     } else {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "wrongLetter");
       div.removeAttribute("id", `letter${[i]}`);
+      keyColorChange(clickedLetters[i], div);
     }
+  }
+}
+
+function keyColorChange(key, div) {
+  if (div.classList.contains("wrongLetter")) {
+    let keyToChange = document.getElementById(key);
+    keyToChange.classList.add("keyNotInWord");
+  } else if (div.classList.contains("wrongPlace")) {
+    let keyToChange = document.getElementById(key);
+    keyToChange.classList.add("keyWrongPlace");
+  } else {
+    let keyToChange = document.getElementById(key);
+    keyToChange.classList.add("keyRightLetter");
   }
 }
 
@@ -112,6 +127,6 @@ function rightWord() {
 
 function info() {
   alert(
-    "What the different colours mean: PINK - correct letter in the wrong place. BLUE - correct letter & correct place"
+    "What the different colours mean: PINK - correct letter in the wrong place. PURPLE - correct letter & correct place"
   );
 }
