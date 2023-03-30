@@ -80,7 +80,7 @@ function checkLetters(chosenWordArr, clickedLetters) {
   for (let i = 0; i < clickedLetters.length; i++) {
     if (chosenWord === clickedLetters.join("")) {
       rightWord();
-    } else if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
+    } else if (chosenWordArr[i] === clickedLetters[i]) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightLetter");
       div.removeAttribute("id", `letter${[i]}`);
