@@ -105,6 +105,6 @@ function rightWord() {
 
 function info() {
   alert(
-    "What the different colours mean: X - correct letter in the wrong place. Y - correct letter & correct place"
+    "What the different colours mean: PINK - correct letter in the wrong place. BLUE - correct letter & correct place"
   );
 }
