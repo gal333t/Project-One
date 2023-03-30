@@ -56,7 +56,7 @@ function onBackspace() {
 function onReturn() {
   if (validWords.includes(clickedLetters.join("")) == false) {
     alert("Word is not valid");
-  } else if (guessCounter == 5) {
+  } else if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
     clickedLetters.length = 0;
     letterCounter = 0;
 
@@ -65,7 +65,6 @@ function onReturn() {
     h2.setAttribute("class", "heading");
     h2.textContent = "Sorry you lost.. the correct word was: " + chosenWord;
     header.appendChild(h2);
-
     return;
   } else {
     checkLetters(chosenWordArr, clickedLetters);
