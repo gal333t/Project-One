@@ -55,7 +55,7 @@ function onBackspace() {
 
 function onReturn() {
   if (validWords.includes(clickedLetters.join("")) == false) {
-    console.log("Word is not valid");
+    alert("Word is not valid");
   } else {
     checkLetters(chosenWordArr, clickedLetters);
     clickedLetters.length = 0;
