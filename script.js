@@ -14,6 +14,20 @@ function onStartUp() {
   guesses = document.querySelectorAll(".guess");
   console.log(guesses);
 }
+onStartUp();
+
+let keys = document.getElementsByClassName("key");
+
+for (let keyElement of keys) {
+  let key = keyElement.textContent;
+  keyElement.addEventListener("click", function () {
+    console.log(key);
+    if (clickedLetters.length < 5) {
+      clickedLetters.push(key);
+      onKeyInput();
+    }
+  });
+}
 
 function onKeyInput() {
   letters = guesses[guessCounter].querySelectorAll(".letter");
@@ -24,11 +38,8 @@ function onKeyInput() {
     let div = document.querySelectorAll(".letter");
     selectedDiv = div[letterCounter];
     selectedDiv.setAttribute("id", `letter${[letterCounter]}`);
-
     let p = document.createElement("p");
     p.textContent = clickedLetters[letterCounter];
-
-    // guesses[guessCounter].childNodes[letterCounter + 1].appendChild(p);
     selectedDiv.appendChild(p);
     letterCounter++;
   }
@@ -91,23 +102,6 @@ function rightWord() {
   header.appendChild(h2);
   return;
 }
-
-// keyboard
-
-let keys = document.getElementsByClassName("key");
-
-for (let keyElement of keys) {
-  let key = keyElement.textContent;
-  keyElement.addEventListener("click", function () {
-    console.log(key);
-    if (clickedLetters.length < 5) {
-      clickedLetters.push(key);
-      onKeyInput();
-    }
-  });
-}
-
-onStartUp();
 
 function info() {
   alert(
