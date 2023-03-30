@@ -56,6 +56,9 @@ function onBackspace() {
 function onReturn() {
   if (validWords.includes(clickedLetters.join("")) == false) {
     alert("Word is not valid");
+  } else if (guessCounter == 5) {
+    alert("Sorry, you lost");
+    return;
   } else {
     checkLetters(chosenWordArr, clickedLetters);
     clickedLetters.length = 0;
