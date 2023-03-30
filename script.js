@@ -40,7 +40,6 @@ function onBackspace() {
   p.remove();
   clickedLetters.pop();
   letterCounter--;
-  console.log(clickedLetters);
 }
 
 function onReturn() {
@@ -59,8 +58,10 @@ function checkLetters(chosenWordArr, clickedLetters) {
   console.log(clickedLetters);
   for (let i = 0; i < clickedLetters.length; i++) {
     if (chosenWord === clickedLetters.join("")) {
-      alert("You got the word correct!!");
-      return;
+      rightWord();
+      // let div = document.getElementById(`letter${i}`);
+      // div.setAttribute("class", "rightLetter");
+      // div.removeAttribute("id", `letter${[i]}`);
     } else if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightLetter");
@@ -75,6 +76,19 @@ function checkLetters(chosenWordArr, clickedLetters) {
       div.removeAttribute("id", `letter${[i]}`);
     }
   }
+}
+
+function rightWord() {
+  for (let i = 0; i < clickedLetters.length; i++) {
+    let div = document.getElementById(`letter${i}`);
+    div.setAttribute("class", "rightLetter");
+    div.removeAttribute("id", `letter${[i]}`);
+  }
+  let header = document.querySelector("h1");
+  let h2 = document.createElement("h2");
+  h2.textContent = "CONGRATS!";
+  header.appendChild(h2);
+  return;
 }
 
 // keyboard
