@@ -57,6 +57,8 @@ function onReturn() {
   if (validWords.includes(clickedLetters.join("")) == false) {
     alert("Word is not valid");
   } else if (guessCounter == 5) {
+    clickedLetters.length = 0;
+    letterCounter = 0;
     alert("Sorry, you lost");
     return;
   } else {
