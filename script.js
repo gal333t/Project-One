@@ -58,7 +58,10 @@ function onReturn() {
 function checkLetters(chosenWordArr, clickedLetters) {
   console.log(clickedLetters);
   for (let i = 0; i < clickedLetters.length; i++) {
-    if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
+    if (chosenWord === clickedLetters.join("")) {
+      alert("You got the word correct!!");
+      return;
+    } else if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightLetter");
       div.removeAttribute("id", `letter${[i]}`);
