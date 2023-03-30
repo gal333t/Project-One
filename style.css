@@ -137,3 +137,7 @@ p {
 .keyRightLetter {
   background-color: violet;
 }
+
+.footer {
+  font-size: 10px;
+}
