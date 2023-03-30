@@ -61,13 +61,15 @@ function checkLetters(chosenWordArr, clickedLetters) {
     if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightLetter");
+      div.removeAttribute("id", `letter${[i]}`);
     } else if (chosenWordArr.indexOf(clickedLetters[i]) >= 0) {
-      // let answer = document.getElementById(`letter${i}`).textContent;
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "wrongPlace");
+      div.removeAttribute("id", `letter${[i]}`);
     } else {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "wrongLetter");
+      div.removeAttribute("id", `letter${[i]}`);
     }
   }
 }
