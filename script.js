@@ -59,7 +59,13 @@ function onReturn() {
   } else if (guessCounter == 5) {
     clickedLetters.length = 0;
     letterCounter = 0;
-    alert("Sorry, you lost");
+
+    let header = document.querySelector("h1");
+    let h2 = document.createElement("h2");
+    h2.setAttribute("class", "heading");
+    h2.textContent = "Sorry you lost.. the correct word was: " + chosenWord;
+    header.appendChild(h2);
+
     return;
   } else {
     checkLetters(chosenWordArr, clickedLetters);
@@ -75,9 +81,6 @@ function checkLetters(chosenWordArr, clickedLetters) {
   for (let i = 0; i < clickedLetters.length; i++) {
     if (chosenWord === clickedLetters.join("")) {
       rightWord();
-      // let div = document.getElementById(`letter${i}`);
-      // div.setAttribute("class", "rightLetter");
-      // div.removeAttribute("id", `letter${[i]}`);
     } else if (chosenWordArr.indexOf(clickedLetters[i]) == i) {
       let div = document.getElementById(`letter${i}`);
       div.setAttribute("class", "rightLetter");
