@@ -127,6 +127,6 @@ function rightWord() {
 
 function info() {
   alert(
-    "What the different colours mean: PINK - correct letter in the wrong place. PURPLE - correct letter & correct place"
+    "What the different colours mean: PINK - correct letter in the correct place. PURPLE - correct letter in the wrong place"
   );
 }
