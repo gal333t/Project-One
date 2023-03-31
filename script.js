@@ -121,7 +121,19 @@ function rightWord() {
   let h2 = document.createElement("h2");
   h2.setAttribute("class", "heading");
   let guessAnswer = guessCounter + 1;
-  h2.textContent = "CONGRATS! YOU WIN! " + guessAnswer + "/6, not bad 🎉";
+  let options = Math.floor(Math.random() * 3);
+  console.log(options);
+  if (options === 0) {
+    h2.textContent = "CONGRATS! YOU WIN! " + guessAnswer + "/6, not bad 🎉";
+  } else if (options === 1) {
+    h2.textContent =
+      "CONGRATS! YOU WIN! 🎉 " + guessAnswer + "/6, could be better though";
+  } else if (options === 2) {
+    h2.textContent =
+      "CONGRATS! YOU WIN! " + guessAnswer + "/6, pretty good stuff 🎉";
+  } else {
+    "CONGRATS, YOU WIN! 🎉 " + guessAnswer + "/6, unreal you legend!";
+  }
   header.appendChild(h2);
   return;
 }
