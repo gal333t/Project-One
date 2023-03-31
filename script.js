@@ -120,7 +120,8 @@ function rightWord() {
   let header = document.querySelector("h1");
   let h2 = document.createElement("h2");
   h2.setAttribute("class", "heading");
-  h2.textContent = "CONGRATS! YOU WIN! 🎉";
+  let guessAnswer = guessCounter + 1;
+  h2.textContent = "CONGRATS! YOU WIN! " + guessAnswer + "/6, not bad 🎉";
   header.appendChild(h2);
   return;
 }
