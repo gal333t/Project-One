@@ -100,30 +100,30 @@ p {
 #backspaceKey,
 #returnKey,
 #spacebar {
-  margin: 1px;
+  margin: 2px;
   text-align: center;
+  color: white;
   background-color: grey;
   border: 1px solid rgb(76, 63, 63);
-  border-radius: 1px;
+  border-radius: 3px;
   opacity: 100%;
 }
 
-#returnKey {
-  width: 50px;
-  height: 40px;
-}
-#backspaceKey {
-  width: 80px;
-  height: 40px;
-}
 .key {
+  font-size: 18px;
   height: 40px;
-  width: 40px;
+  width: 30px;
 }
 
-#spacebar {
-  width: 200px;
+#returnKey {
+  width: 60px;
   height: 40px;
+  font-size: 16px;
+}
+#backspaceKey {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
 }
 
 .keyNotInWord {
