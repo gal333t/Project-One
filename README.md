@@ -53,5 +53,4 @@ Thank you to literally everyone who helped me fix my problems big & small,and sp
 
 ## How does it actually look?
 
-![](https://i.ibb.co/HND62tY/Screen-Shot-2023-03-30-at-10-12-35-pm.png)
-s
+![](https://i.ibb.co/WpbS90s/Screen-Shot-2023-03-31-at-10-03-42-pm.png)
