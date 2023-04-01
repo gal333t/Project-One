@@ -41,6 +41,7 @@ Good luck! Have fun, refresh when you're done and keep on guessing.
 ### (but hopefully at some point I'll come back to?)
 
 - A restart button on the page, at the moment you have to refresh to restart play, think it might be easier to have my page fully created inside JS without any HTML (minus the keyboard)
+- Page changing widths, doesn't work elegantly
 - The option to have unlimited guesses, where you never run out of turns until you get the word correct
 - Using fancy alert boxes for displaying game instructions & for when you win
 - Adding animations when the colour changes, and for when you guess the word
