@@ -1,6 +1,5 @@
 const chosenWord = validWords[Math.floor(Math.random() * validWords.length)];
 let chosenWordArr = chosenWord.split("");
-// this will split the word into letters
 
 let letterCounter = 0;
 let guessCounter = 0;
@@ -12,7 +11,6 @@ let clickedLetters = [];
 
 function onStartUp() {
   guesses = document.querySelectorAll(".guess");
-  console.log(guesses);
 }
 onStartUp();
 
@@ -21,7 +19,6 @@ let keys = document.getElementsByClassName("key");
 for (let keyElement of keys) {
   let key = keyElement.textContent;
   keyElement.addEventListener("click", function () {
-    console.log(key);
     if (clickedLetters.length < 5) {
       clickedLetters.push(key);
       onKeyInput();
@@ -75,7 +72,6 @@ function onReturn() {
 }
 
 function checkLetters(chosenWordArr, clickedLetters) {
-  console.log(clickedLetters);
   for (let i = 0; i < clickedLetters.length; i++) {
     if (chosenWord === clickedLetters.join("")) {
       rightWord();
@@ -99,14 +95,12 @@ function checkLetters(chosenWordArr, clickedLetters) {
 }
 
 function keyColorChange(key, div) {
+  let keyToChange = document.getElementById(key);
   if (div.classList.contains("wrongLetter")) {
-    let keyToChange = document.getElementById(key);
     keyToChange.classList.add("keyNotInWord");
   } else if (div.classList.contains("wrongPlace")) {
-    let keyToChange = document.getElementById(key);
     keyToChange.classList.add("keyWrongPlace");
   } else {
-    let keyToChange = document.getElementById(key);
     keyToChange.classList.add("keyRightLetter");
   }
 }
@@ -121,7 +115,7 @@ function rightWord() {
   let h2 = document.createElement("h2");
   h2.setAttribute("class", "heading");
   let guessAnswer = guessCounter + 1;
-  let options = Math.floor(Math.random() * 3);
+  let options = Math.floor(Math.random() * 4);
   if (options === 0) {
     h2.textContent = "CONGRATS! YOU WIN! " + guessAnswer + "/6, not bad 🎉";
   } else if (options === 1) {
@@ -140,6 +134,6 @@ function rightWord() {
 
 function info() {
   alert(
-    "What the different colours mean: PINK - correct letter in the correct place. PURPLE - correct letter in the wrong place"
+    "PINK - correct letter & correct place. PURPLE - correct letter, wrong place"
   );
 }
