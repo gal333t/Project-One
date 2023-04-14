@@ -24,7 +24,7 @@ Good luck! Have fun, refresh when you're done and keep on guessing.
 
 ## How does it actually look?
 
-![](https://i.ibb.co/C1TYPF8/word-game-example.png)
+![](https://i.ibb.co/HV6MWf6/Screen-Shot-2023-04-14-at-2-01-01-pm.png)
 
 ## What I'm really proud of
 
