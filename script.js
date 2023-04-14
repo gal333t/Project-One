@@ -9,10 +9,24 @@ let guesses = [];
 
 let clickedLetters = [];
 
-function onStartUp() {
+function intialize() {
   guesses = document.querySelectorAll(".guess");
+  document.addEventListener("keyup", (e) => {
+    if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
+      return;
+    } else if ("KeyA" <= e.code && e.code <= "KeyZ") {
+      if (clickedLetters.length < 5) {
+        clickedLetters.push(e.code[3]);
+        onKeyInput();
+      }
+    } else if (e.code == "Enter") {
+      onReturn();
+    } else if (e.code == "Backspace") {
+      onBackspace();
+    }
+  });
 }
-onStartUp();
+intialize();
 
 let keys = document.getElementsByClassName("key");
 
