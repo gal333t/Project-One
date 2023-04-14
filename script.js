@@ -80,6 +80,7 @@ function onReturn() {
       alert("Word is not valid");
     }
   } else if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
+    checkLetters(chosenWordArr, clickedLetters);
     clickedLetters.length = 0;
     letterCounter = 0;
     let header = document.querySelector("h1");
@@ -137,6 +138,7 @@ function rightWord() {
     div.setAttribute("class", "rightLetter");
     div.removeAttribute("id", `letter${[i]}`);
   }
+  checkLetters(chosenWordArr, clickedLetters);
   let header = document.querySelector("h1");
   let h2 = document.createElement("h2");
   h2.setAttribute("class", "heading");
