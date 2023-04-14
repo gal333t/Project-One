@@ -7,12 +7,17 @@ let guessCounter = 0;
 let letters = [];
 let guesses = [];
 
+let gameOver = false;
+
 let clickedLetters = [];
 
 function intialize() {
   guesses = document.querySelectorAll(".guess");
+
+  // maybe need to query selector for get element by ID to work out what Box and row, and then use in first if statement?
+
   document.addEventListener("keyup", (e) => {
-    if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
+    if (gameOver == true) {
       return;
     } else if ("KeyA" <= e.code && e.code <= "KeyZ") {
       if (clickedLetters.length < 5) {
@@ -70,12 +75,12 @@ function onReturn() {
   } else if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
     clickedLetters.length = 0;
     letterCounter = 0;
-
     let header = document.querySelector("h1");
     let h2 = document.createElement("h2");
     h2.setAttribute("class", "heading");
     h2.textContent = "Sorry you lost.. the correct word was: " + chosenWord;
     header.appendChild(h2);
+    gameOver = true;
     return;
   } else {
     checkLetters(chosenWordArr, clickedLetters);
