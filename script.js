@@ -134,6 +134,6 @@ function rightWord() {
 
 function info() {
   alert(
-    "PINK - correct letter & correct place. PURPLE - correct letter, wrong place"
+    "GREEN - correct letter & correct place. YELLOW - correct letter, wrong place"
   );
 }
