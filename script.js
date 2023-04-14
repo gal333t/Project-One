@@ -12,7 +12,7 @@ let clickedLetters = [];
 function intialize() {
   guesses = document.querySelectorAll(".guess");
   document.addEventListener("keyup", (e) => {
-    if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
+    if (guessCounter > 6 && chosenWord !== clickedLetters.join("")) {
       return;
     } else if ("KeyA" <= e.code && e.code <= "KeyZ") {
       if (clickedLetters.length < 5) {
@@ -70,7 +70,6 @@ function onReturn() {
   } else if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
     clickedLetters.length = 0;
     letterCounter = 0;
-
     let header = document.querySelector("h1");
     let h2 = document.createElement("h2");
     h2.setAttribute("class", "heading");
