@@ -20,6 +20,7 @@ header {
   height: 30px;
   background-color: #8a548a;
   margin-bottom: 10px;
+  margin-top: -10px;
   border: 1px solid black;
   font-size: 14px;
   font-weight: bold;
@@ -36,7 +37,7 @@ header {
 }
 
 .wrongLetter {
-  background-color: rgba(228, 168, 228, 0.452);
+  background-color: rgba(228, 168, 228, 0.133);
   width: 50px;
   height: 50px;
   justify-self: center;
@@ -125,7 +126,7 @@ p {
 }
 
 .keyNotInWord {
-  background-color: rgba(228, 168, 228, 0.452);
+  background-color: rgba(228, 168, 228, 0.133);
 }
 
 .keyWrongPlace {
