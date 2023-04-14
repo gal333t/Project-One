@@ -138,7 +138,6 @@ function rightWord() {
     div.setAttribute("class", "rightLetter");
     div.removeAttribute("id", `letter${[i]}`);
   }
-  checkLetters(chosenWordArr, clickedLetters);
   let header = document.querySelector("h1");
   let h2 = document.createElement("h2");
   h2.setAttribute("class", "heading");
