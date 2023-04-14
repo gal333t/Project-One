@@ -4,7 +4,7 @@
 
 ### _\*Word Galactica\*_
 
-The assignment was to create my own version of Wordle. What I lack in creativity, I hopefully made up for in other ways here. Like with my code. My Wordle Adaptation is a straight up Wordle. I changed the colours to make it fun and called it something cool new and different.
+The assignment was to create my own version of Wordle. What I lack in creativity, I hopefully made up for in other ways here. Like with my code. My Wordle Adaptation is a straight up Wordle. I changed the colours to make it fun and called it something cool new and different, and then got feedback from family and changed it to match Worldle.
 
 ### Want to play the game?
 
@@ -14,7 +14,7 @@ The assignment was to create my own version of Wordle. What I lack in creativity
 
 First things first, the little info button will pop up an alert explaining what the colours mean when you click it. The aim of the game is simple really, guess the randomly chosen word. \
 \
-Depending on what you guess, the colours will change. A greyish purple means you got the letter wrong. An almost neon pink is great, you got the letter right & in the right place. Then deep purple is the right letter, but unfortunately in the wrong place.
+Depending on what you guess, the colours will change. A dark grey (almost black) means you got the letter wrong. Green is great, you got the letter right & in the right place. Then yellow is the right letter, but unfortunately in the wrong place.
 \
 \
 Simple enough really! But there is a little trick to it... If you guess a word that has the same letter more than once, and that letter is in the chosen word then it will look like it's in more than once. Think of it as my way of making Wordle harder and not because I didn't fix my code. But no, definitely was intentional.
@@ -24,7 +24,7 @@ Good luck! Have fun, refresh when you're done and keep on guessing.
 
 ## How does it actually look?
 
-![](https://i.ibb.co/WpbS90s/Screen-Shot-2023-03-31-at-10-03-42-pm.png)
+![](https://i.ibb.co/C1TYPF8/word-game-example.png)
 
 ## What I'm really proud of
 
