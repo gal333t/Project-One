@@ -14,8 +14,6 @@ let clickedLetters = [];
 function intialize() {
   guesses = document.querySelectorAll(".guess");
 
-  // maybe need to query selector for get element by ID to work out what Box and row, and then use in first if statement?
-
   document.addEventListener("keyup", (e) => {
     if (gameOver == true) {
       return;
@@ -47,9 +45,10 @@ for (let keyElement of keys) {
 
 function onKeyInput() {
   letters = guesses[guessCounter].querySelectorAll(".letter");
-
   if (letterCounter.length > 4) {
     alert("invalid word");
+  } else if (gameOver == true) {
+    return;
   } else {
     let div = document.querySelectorAll(".letter");
     selectedDiv = div[letterCounter];
@@ -62,16 +61,24 @@ function onKeyInput() {
 }
 
 function onBackspace() {
-  let letterIndex = clickedLetters.length - 1;
-  let p = document.querySelector(`#letter${[letterIndex]} p`);
-  p.remove();
-  clickedLetters.pop();
-  letterCounter--;
+  if (gameOver == true) {
+    return;
+  } else {
+    let letterIndex = clickedLetters.length - 1;
+    let p = document.querySelector(`#letter${[letterIndex]} p`);
+    p.remove();
+    clickedLetters.pop();
+    letterCounter--;
+  }
 }
 
 function onReturn() {
   if (validWords.includes(clickedLetters.join("")) == false) {
-    alert("Word is not valid");
+    if (gameOver == true) {
+      return;
+    } else {
+      alert("Word is not valid");
+    }
   } else if (guessCounter == 5 && chosenWord !== clickedLetters.join("")) {
     clickedLetters.length = 0;
     letterCounter = 0;
